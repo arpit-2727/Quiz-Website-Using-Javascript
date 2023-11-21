@@ -6,11 +6,32 @@ document.addEventListener('DOMContentLoaded', (event) => {
   
     const questions = [
         {
-            question: " 1 . What is the capital of Uttar Pradesh?",
-            options: ["KOLKATA", "LUCKNOW", "MUMBAI", "KOHIMA"],
-            answer: "LUCKNOW"
+            question: " 1 . Javascript is an ____ Language",
+            options: ["object-oriented", "object-based", "procedural", "NOTA"],
+            answer: "object-oriented"
         },
-        // More questions...
+        {
+            question: " 2 . Which of the following keywords is used to define a variable in JS ?",
+            options : [" var " , " let " , " Both" , " NOTA "],
+            answer : " Both "
+        },
+        {
+            question: " 3. What keyword is used to check whether a given property is valid or not? " ,
+            options: ["in","is in","exists","lies"],
+            answer : "in"
+
+        },
+        {
+            question:"4.What is use of <noscript> tag in JS?",
+            options:["contents are displayed by non js based browsers","clears all the cookies and cache","both","NOTA"],
+            answer:"contents are displayed by non js based browsers"
+        },
+        {
+            question:"5.The process in which an object or data structure is translated into a format suitable for transferral over a network ,or storage called?",
+            options:["object serialization","object encapsulation","object inheritance","NOTA"],
+            ansser:"object serialization"
+        }
+        
     ];
   
     function loadQuestion(questionIndex) {

@@ -15,7 +15,12 @@ document.addEventListener('DOMContentLoaded', (event) => {
             options : [" var " , " let " , " Both" , " NOTA "],
             answer : " Both "
         },
-        
+        {
+            question: " 3. What keyword is used to check whether a given property is valid or not? " ,
+            options: ["in","is in","exists","lies"],
+            answer : "in"
+
+        },
         {
             question:"4.What is use of <noscript> tag in JS?",
             options:["contents are displayed by non js based browsers","clears all the cookies and cache","both","NOTA"],

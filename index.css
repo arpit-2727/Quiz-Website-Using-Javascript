@@ -1,25 +1,203 @@
 body {
-    background-color: #ffffff;
-  }
-  
-  #quiz-container {
-    background: #ffffff;
-    border-radius: 10px;
+    background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); /* Dark asphalt pattern background */
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden; /* Prevent scrolling */
+    animation: backgroundAnimation 10s ease infinite; /* Smooth background animation */
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    100% {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+#quiz-container {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    border-radius: 15px;
     padding: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  #question {
-    font-size: 24px;
-  }
-  
-  #options .btn-option {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease, scaleUp 0.5s ease, glow 1.5s infinite alternate; /* Fade, scale up, and glow animation */
+    position: relative; /* For positioning the overlay */
+    z-index: 1; /* Ensure it is above the background */
+}
+
+/* Overlay pattern effect */
+#quiz-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('https://www.transparenttextures.com/patterns/pattern.png'); /* Light pattern overlay */
+    opacity: 0.1; /* Subtle pattern */
+    z-index: -1; /* Behind the container */
+}
+
+/* Add a pulsating effect to the question */
+#question {
+    font-size: 26px;
+    margin-bottom: 20px;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    animation: slideIn 0.5s ease, pulsate 2s ease-in-out infinite; /* Slide-in and pulsate animation */
+}
+
+/* Add a fade-in effect to the options */
+#options {
+    opacity: 0; /* Hidden initially */
+    animation: fadeIn 0.5s ease forwards; /* Fade in on load */
+    animation-delay: 0.5s; /* Delay for a staggered effect */
+}
+
+/* Add a hover effect to the options with a glow and scale-up animation */
+#options .btn-option {
     display: block;
     width: 100%;
     margin: 10px 0;
-    padding: 10px;
-  }
-  
-  #next-button {
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    background-color: #007bff; /* Base color */
+    color: white;
+    border: none;
+    position: relative; /* For positioning the glow */
+    overflow: hidden; /* Prevent overflow of the glow */
+    transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.3s ease;
+    animation: fadeIn 0.5s ease forwards; /* Fade in for each option */
+}
+
+#options .btn-option::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px;
+    background-color: rgba(0, 123, 255, 0.5); /* Glow color */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0; /* Behind the button text */
+}
+
+#options .btn-option:hover {
+    transform: translateY(-3px) scale(1.05); /* Scale-up on hover */
+}
+
+#options .btn-option:hover::after {
+    opacity: 1; /* Show glow on hover */
+}
+
+#options .btn-option:hover {
+    color: white; /* Text color remains white */
+}
+
+/* Add a hover effect to the next button with a glow and scale-up animation */
+#next-button {
     margin-top: 20px;
-  }
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    background-color: #28a745; /* Base color */
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.5s ease forwards; /* Fade in for the button */
+    animation-delay: 0.5s; /* Delay for a staggered effect */
+}
+
+#next-button:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: translateY(-3px) scale(1.05); /* Scale-up on hover */
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.7); /* Glow effect */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #quiz-container {
+        padding: 20px;
+    }
+
+    #question {
+        font-size: 22px;
+    }
+
+    #options .btn-option {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    #next-button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
